@@ -1,34 +1,46 @@
 package baseball.run;
 
 import baseball.input.ScanNumber;
-import baseball.random.GenerateRandomNum;
+import baseball.random.RandomNumber;
+
+import java.util.List;
 
 public class RunGame {
-    private GenerateRandomNum randomNum;
-    private ScanNumber scanNum;
-    private int StrikeNum = 0;
-    private int BallNum = 0;
+    private final RandomNumber randomNum;
 
-    public RunGame(){
-        randomNum = new GenerateRandomNum();
-        System.out.println(randomNum.getList().getRandomNumList());
+    public RunGame() {
+        randomNum = new RandomNumber();
     }
 
-    public String run(){
-        scanNum = new ScanNumber();
-        if(compareList(randomNum, scanNum)){
-            System.out.println("정답");
-            return "정답";
+    public void run() {
+        ScanNumber scanNum;
+        do{
+            scanNum = new ScanNumber();
+        }while(!compareList(randomNum, scanNum));
+    }
+
+    private boolean compareList(RandomNumber rNum, ScanNumber sNum) {
+        List<Integer> randomNumList = rNum.getList().getRandomNumList();
+        List<Integer> scanNumList = sNum.getList().getScanNumList();
+        int Strike = 0;
+        int Ball = 0;
+
+        for(int i=0; i<randomNumList.size();i++){
+            if(randomNumList.get(i).equals(scanNumList.get(i))){
+                Strike++;
+                continue;
+            }
+            if(randomNumList.contains(scanNumList.get(i))){
+                Ball++;
+            }
         }
-        System.out.println("실패");
-        return "실패";
-    }
 
-    // randomNumList와 scanNumList를 가져와서 비교 로직 ( Ball, Strike 여부 )
-    private boolean compareList(GenerateRandomNum rNum, ScanNumber sNum){
-        System.out.println(rNum.getList().getRandomNumList());
-        System.out.println(sNum.getList().getScanNumList());
+        if (Strike == 3){
+            System.out.println("3 Strike ! Game End");
+            return true;
+        }
 
-        return rNum.getList().getRandomNumList().containsAll(sNum.getList().getScanNumList());
+        System.out.println("Strike : " + Strike + ", Ball : " + Ball);
+        return false;
     }
 }

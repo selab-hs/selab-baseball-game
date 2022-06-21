@@ -1,15 +1,16 @@
 package baseball.random.list;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 public class RandomNumList {
-    private List<Integer> randomNumList = new ArrayList<Integer>();
+    private final List<Integer> randomNumList;
 
-    public RandomNumList(int a, int b, int c){
-        randomNumList.add(a);
-        randomNumList.add(b);
-        randomNumList.add(c);
+    public RandomNumList(Set<Integer> numberSet){
+        randomNumList = new ArrayList<>(numberSet);
+        Collections.shuffle(randomNumList);
     }
 
     public List<Integer> getRandomNumList() {

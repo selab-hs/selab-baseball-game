@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class ScanNumber {
     private final Scanner sc = new Scanner(System.in);
-    private ScanNumList sList;
+    private final ScanNumList sList;
 
     public ScanNumber(){
         sList = new ScanNumList(scan());
@@ -14,9 +14,9 @@ public class ScanNumber {
 
     private int scan(){
         while(true) {
-            System.out.println("Input three Number ex)348 : ");
+            System.out.print("Input three Number : ");
             String str = sc.nextLine();
-            System.out.println("입력한 숫자 :" + str);
+            System.out.println("입력한 숫자 : " + str);
 
             if(validateNum(str))
                 return Integer.parseInt(str);
