@@ -7,13 +7,13 @@ import java.util.Scanner;
 
 public class InputNumber {
     private final Scanner sc = new Scanner(System.in);
-    private InputNumbers sList;
+    private final InputNumbers sList;
 
     public InputNumber(){
-        inputNumber();
+        sList = inputNumber();
     }
 
-    private void inputNumber(){
+    private InputNumbers inputNumber(){
         String str;
         do{
             System.out.print("Input three Number : ");
@@ -22,7 +22,7 @@ public class InputNumber {
             errMsg(validateNum(str));
         }while(!validateNum(str));
 
-        sList = new InputNumbers(Integer.parseInt(str));
+        return new InputNumbers(Integer.parseInt(str));
     }
 
     private boolean validateNum(String str) {
