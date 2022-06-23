@@ -1,6 +1,6 @@
 package baseball.run;
 
-import baseball.input.ScanNumber;
+import baseball.input.InputNumber;
 import baseball.random.RandomNumber;
 
 import java.util.List;
@@ -13,34 +13,36 @@ public class RunGame {
     }
 
     public void run() {
-        ScanNumber scanNum;
+        InputNumber scanNum;
         do{
-            scanNum = new ScanNumber();
-        }while(!compareList(randomNum, scanNum));
+            scanNum = new InputNumber();
+        }while(!compareNumber(randomNum.getList().getRandomNumList(), scanNum.getList().getInputNumList()));
     }
 
-    private boolean compareList(RandomNumber rNum, ScanNumber sNum) {
-        List<Integer> randomNumList = rNum.getList().getRandomNumList();
-        List<Integer> scanNumList = sNum.getList().getScanNumList();
-        int Strike = 0;
-        int Ball = 0;
+    private boolean compareNumber(List<Integer> rNumList, List<Integer> inputNumList) {
+        int strike = 0;
+        int ball = 0;
 
-        for(int i=0; i<randomNumList.size();i++){
-            if(randomNumList.get(i).equals(scanNumList.get(i))){
-                Strike++;
+        for(int i=0; i<rNumList.size();i++){
+            if(rNumList.get(i).equals(inputNumList.get(i))){
+                strike++;
                 continue;
             }
-            if(randomNumList.contains(scanNumList.get(i))){
-                Ball++;
+            if(rNumList.contains(inputNumList.get(i))){
+                ball++;
             }
         }
 
-        if (Strike == 3){
+        return outputResult(strike, ball);
+    }
+
+    private boolean outputResult(int strike, int ball){
+        if (strike == 3){
             System.out.println("3 Strike ! Game End");
             return true;
         }
 
-        System.out.println("Strike : " + Strike + ", Ball : " + Ball);
+        System.out.println("Strike : " + strike + ", Ball : " + ball);
         return false;
     }
 }

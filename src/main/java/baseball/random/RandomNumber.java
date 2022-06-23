@@ -1,29 +1,28 @@
 package baseball.random;
 
-import baseball.random.list.RandomNumList;
+import baseball.random.list.RandomNumbers;
 
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class RandomNumber {
-    private RandomNumList rList;
+    private RandomNumbers rList;
 
 	public RandomNumber(){
         generateRandomNum();
     }
 
     private void generateRandomNum(){
-        Set<Integer> numberSet = new HashSet<>();
+        Set<Integer> numberSet = new LinkedHashSet<>();
 
         while (numberSet.size() < 3) {
-            int number = (int)(Math.random() * 9 + 1);
-            numberSet.add(number);
+            numberSet.add((int)(Math.random() * 9 + 1));
         }
 
-        rList = new RandomNumList(numberSet);
+        rList = new RandomNumbers(numberSet);
     }
 
-    public RandomNumList getList(){
+    public RandomNumbers getList(){
         return rList;
     }
 }
