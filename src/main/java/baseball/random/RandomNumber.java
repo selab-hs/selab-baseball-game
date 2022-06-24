@@ -6,20 +6,20 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class RandomNumber {
-    private RandomNumbers rList;
+    private final RandomNumbers rList;
 
 	public RandomNumber(){
-        generateRandomNum();
+        rList = generateRandomNum();
     }
 
-    private void generateRandomNum(){
+    private RandomNumbers generateRandomNum(){
         Set<Integer> numberSet = new LinkedHashSet<>();
 
         while (numberSet.size() < 3) {
             numberSet.add((int)(Math.random() * 9 + 1));
         }
 
-        rList = new RandomNumbers(numberSet);
+        return new RandomNumbers(numberSet);
     }
 
     public RandomNumbers getList(){

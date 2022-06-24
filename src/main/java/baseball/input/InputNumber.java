@@ -2,6 +2,7 @@ package baseball.input;
 
 
 import baseball.input.list.InputNumbers;
+import baseball.output.Output;
 
 import java.util.Scanner;
 
@@ -16,7 +17,7 @@ public class InputNumber {
     private InputNumbers inputNumber(){
         String str;
         do{
-            System.out.print("Input three Number : ");
+            Output.print("Input three Number : ");
             str = sc.nextLine();
 
             errMsg(validateNum(str));
@@ -26,15 +27,12 @@ public class InputNumber {
     }
 
     private boolean validateNum(String str) {
-        if(str.length() !=3) {
-            return false;
-        }
-        return str.matches("[+-]?\\d*(\\.\\d+)?");
+        return str.length() ==3 && str.matches("[+-]?\\d*(\\.\\d+)?");
     }
 
     private void errMsg(boolean bool){
         if(!bool){
-            System.out.println("잘못된 입력입니다");
+            Output.print("잘못된 입력입니다");
         }
     }
 
