@@ -1,7 +1,7 @@
 package baseball.output;
 
 public class Output {
-    public static void print(String str){
+    public void output(String str) {
         System.out.println(str);
     }
 }
