@@ -1,42 +1,50 @@
 package baseball.input;
 
-
 import baseball.input.list.InputNumbers;
-import baseball.output.Output;
 
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 public class InputNumber {
     private final Scanner sc = new Scanner(System.in);
-    private final InputNumbers sList;
+    private InputNumbers numbers;
 
-    public InputNumber(){
-        sList = inputNumber();
+    public InputNumber() {
+        setInputNumber();
     }
 
-    private InputNumbers inputNumber(){
+    private void setInputNumber() {
         String str;
-        do{
-            Output.print("Input three Number : ");
+        do {
+            System.out.print("\nInput three Number : ");
             str = sc.nextLine();
 
             errMsg(validateNum(str));
-        }while(!validateNum(str));
+        } while (!validateNum(str));
 
-        return new InputNumbers(Integer.parseInt(str));
+        numbers = new InputNumbers(Integer.parseInt(str));
     }
 
     private boolean validateNum(String str) {
-        return str.length() ==3 && str.matches("[+-]?\\d*(\\.\\d+)?");
+        return deduplicationNum(str) && str.matches("\\d*(\\.\\d+)?");
     }
 
-    private void errMsg(boolean bool){
-        if(!bool){
-            Output.print("잘못된 입력입니다");
+    private boolean deduplicationNum(String str) {
+        int number = Integer.parseInt(str);
+        Set<Integer> numbers = new HashSet<>(Arrays.asList(number / 100, number % 100 / 10, number % 10));
+
+        return numbers.size() == 3;
+    }
+
+    private void errMsg(boolean bool) {
+        if (!bool) {
+            System.out.println("잘못된 입력입니다");
         }
     }
 
-    public InputNumbers getList(){
-        return sList;
+    public InputNumbers getNumbers() {
+        return numbers;
     }
 }

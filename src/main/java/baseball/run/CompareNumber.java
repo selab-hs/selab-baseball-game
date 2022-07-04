@@ -1,7 +1,6 @@
 package baseball.run;
 
 import baseball.input.InputNumber;
-import baseball.output.Output;
 import baseball.random.RandomNumber;
 
 import java.util.List;
@@ -12,35 +11,44 @@ public class CompareNumber {
     private int strike;
     private int ball;
 
-    CompareNumber(RandomNumber randomNum){
-        do{
-            valueInitialize();
-            compareNumber(randomNum, new InputNumber());
-            Output.print(outputResult());
-        }while(strike!=THREE);
+    public CompareNumber() {
+        initValue();
     }
 
-    private void valueInitialize(){
+    public void setValue(RandomNumber randomNum) {
+        initValue();
+        compareNumber(randomNum, new InputNumber());
+    }
+
+    private void initValue() {
         strike = 0;
         ball = 0;
     }
 
     private void compareNumber(RandomNumber randomNum, InputNumber inputNum) {
-        List<Integer> randomNums = randomNum.getList().getRandomNumList();
-        List<Integer> inputNums = inputNum.getList().getInputNumList();
+        List<Integer> randomNumbers = randomNum.getNumbers().getRandomNumbers();
+        List<Integer> inputNumbers = inputNum.getNumbers().getInputNumbers();
 
-        for(int i=0; i<randomNums.size();i++){
-            if(randomNums.get(i).equals(inputNums.get(i))){
+        for (int i = 0; i < randomNumbers.size(); i++) {
+            if (randomNumbers.get(i).equals(inputNumbers.get(i))) {
                 strike++;
                 continue;
             }
-            if(randomNums.contains(inputNums.get(i))){
+            if (randomNumbers.contains(inputNumbers.get(i))) {
                 ball++;
             }
         }
     }
 
-    private String outputResult(){
-        return strike == THREE ? "3 Strike !" : "Strike : " + strike + ", Ball : " + ball;
+    public boolean isCheckStrike() {
+        return strike == THREE;
+    }
+
+    public int getBall() {
+        return ball;
+    }
+
+    public int getStrike(){
+        return strike;
     }
 }

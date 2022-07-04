@@ -4,15 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InputNumbers {
-    private final List<Integer> inputNumList = new ArrayList<>();
+    private final List<Integer> inputNumbers = new ArrayList<>();
 
-    public InputNumbers(int a){
-        inputNumList.add(a/100);
-        inputNumList.add(a%100/10);
-        inputNumList.add(a%10);
+    public InputNumbers(int number) {
+        setInputNumbers(number);
     }
 
-    public List<Integer> getInputNumList() {
-        return inputNumList;
+    private void setInputNumbers(int number) {
+        inputNumbers.add(number / 100);
+        inputNumbers.add(number % 100 / 10);
+        inputNumbers.add(number % 10);
+    }
+
+    public List<Integer> getInputNumbers() {
+        return inputNumbers;
     }
 }

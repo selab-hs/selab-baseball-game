@@ -6,24 +6,24 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class RandomNumber {
-    private final RandomNumbers rList;
+    private RandomNumbers numbers;
 
-	public RandomNumber(){
-        rList = generateRandomNum();
+    public RandomNumber() {
+        generateRandomNum();
     }
 
-    private RandomNumbers generateRandomNum(){
-        Set<Integer> numberSet = new LinkedHashSet<>();
+    private void generateRandomNum() {
+        Set<Integer> deduplicationNumbers = new LinkedHashSet<>();
 
-        while (numberSet.size() < 3) {
-            numberSet.add((int)(Math.random() * 9 + 1));
+        while (deduplicationNumbers.size() < 3) {
+            deduplicationNumbers.add((int) (Math.random() * 9 + 1));
         }
 
-        return new RandomNumbers(numberSet);
+        numbers = new RandomNumbers(deduplicationNumbers);
     }
 
-    public RandomNumbers getList(){
-        return rList;
+    public RandomNumbers getNumbers() {
+        return numbers;
     }
 }
 
