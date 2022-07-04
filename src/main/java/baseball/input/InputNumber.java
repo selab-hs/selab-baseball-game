@@ -28,13 +28,10 @@ public class InputNumber {
     }
 
     private boolean validateNum(String str) {
-        if (!str.matches("\\d*(\\.\\d+)?")) {
-            return false;
-        }
-        return deduplicationNum(str);
+        return deduplicationNum(str) && str.matches("\\d*(\\.\\d+)?");
     }
 
-    private boolean deduplicationNum(String str){
+    private boolean deduplicationNum(String str) {
         int number = Integer.parseInt(str);
         Set<Integer> numbers = new HashSet<>(Arrays.asList(number / 100, number % 100 / 10, number % 10));
 
