@@ -1,6 +1,6 @@
 package baseball.run;
 
-import baseball.input.InputNumber;
+import baseball.input.InputNumbers;
 import baseball.random.RandomNumber;
 
 import java.util.List;
@@ -8,33 +8,20 @@ import java.util.List;
 public class CompareNumber {
     private static final int THREE = 3;
 
-    private int strike;
-    private int ball;
+    private int strike = 0;
+    private int ball = 0;
 
-    public CompareNumber() {
-        initValue();
+    public CompareNumber(RandomNumber randomNum) {
+        compareNumber(randomNum, new InputNumbers());
     }
 
-    public void setValue(RandomNumber randomNum) {
-        initValue();
-        compareNumber(randomNum, new InputNumber());
-    }
-
-    private void initValue() {
-        strike = 0;
-        ball = 0;
-    }
-
-    private void compareNumber(RandomNumber randomNum, InputNumber inputNum) {
-        List<Integer> randomNumbers = randomNum.getNumbers().getRandomNumbers();
-        List<Integer> inputNumbers = inputNum.getNumbers().getInputNumbers();
-
-        for (int i = 0; i < randomNumbers.size(); i++) {
-            if (randomNumbers.get(i).equals(inputNumbers.get(i))) {
+    private void compareNumber(RandomNumber randomNum, InputNumbers inputNums) {
+        for (int i = 0; i < randomNum.getNumbers().size(); i++) {
+            if (randomNum.getNumbers().get(i).equals(inputNums.getInputNumbers().get(i))) {
                 strike++;
                 continue;
             }
-            if (randomNumbers.contains(inputNumbers.get(i))) {
+            if (randomNum.getNumbers().contains(inputNums.getInputNumbers().get(i))) {
                 ball++;
             }
         }
@@ -44,11 +31,11 @@ public class CompareNumber {
         return strike == THREE;
     }
 
-    public int getBall() {
-        return ball;
-    }
+    public String outputResult() {
+        if (isCheckStrike()) {
+            return "3 Strike !";
+        }
 
-    public int getStrike(){
-        return strike;
+        return "Strike : " + strike + ", Ball : " + ball;
     }
 }
