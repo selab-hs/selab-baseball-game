@@ -4,17 +4,16 @@ import java.util.*;
 
 public class InputNumber {
     private final Scanner sc = new Scanner(System.in);
-    private String inputNumber;
+    private String str;
 
     public InputNumber() {
         inputNumber();
     }
 
     private void inputNumber() {
-        inputNumber = inputString();
+        str = inputString();
 
-        boolean isCheckInputNumber = validateNum(inputNumber);
-        if (isCheckInputNumber) {
+        if (validateNum(str)) {
             return;
         }
 
@@ -35,8 +34,12 @@ public class InputNumber {
     }
 
     protected Set<Integer> deduplicationNum() {
-        int number = Integer.parseInt(inputNumber);
+        int number = Integer.parseInt(str);
         return new LinkedHashSet<>(Arrays.asList(number / 100, number % 100 / 10, number % 10));
+    }
+
+    public List<Integer> getNumber(){
+        return new ArrayList<>(deduplicationNum());
     }
 
     private void errMsg() {

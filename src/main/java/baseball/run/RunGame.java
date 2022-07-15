@@ -19,7 +19,7 @@ public class RunGame {
 
     private void repeatCompareNumber(){
         CompareNumber compareNumber = new CompareNumber(randomNum);
-        output.output(compareNumber.outputResult());
+        output.outputResult(compareNumber.getStrike(), compareNumber.getBall());
 
         if(!compareNumber.isCheckStrike()) {
             repeatCompareNumber();
