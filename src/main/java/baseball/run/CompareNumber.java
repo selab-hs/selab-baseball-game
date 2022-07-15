@@ -1,18 +1,17 @@
 package baseball.run;
 
+import baseball.input.InputNumber;
 import baseball.input.InputNumbers;
 import baseball.random.RandomNumber;
 
-import java.util.List;
-
 public class CompareNumber {
-    private static final int THREE = 3;
+    public static final int THREE = 3;
 
     private int strike = 0;
     private int ball = 0;
 
     public CompareNumber(RandomNumber randomNum) {
-        compareNumber(randomNum, new InputNumbers());
+        compareNumber(randomNum, new InputNumbers(new InputNumber().getNumber()));
     }
 
     private void compareNumber(RandomNumber randomNum, InputNumbers inputNums) {
@@ -31,11 +30,13 @@ public class CompareNumber {
         return strike == THREE;
     }
 
-    public String outputResult() {
-        if (isCheckStrike()) {
-            return "3 Strike !";
-        }
-
-        return "Strike : " + strike + ", Ball : " + ball;
+    public int getStrike(){
+        return strike;
     }
+
+    public int getBall(){
+        return ball;
+    }
+
+
 }
