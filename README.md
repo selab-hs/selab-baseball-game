@@ -24,3 +24,66 @@
 wrjs@naver.com
 ```
 4. 공부하고 싶은 SE.LAB원이라면 누구나 환영!
+
+---
+
+### 구현 내용
+
+1. **Input Class**
+
+   사용자에게 값을 입력 받는 클래스
+
+   - **input()**
+
+     입력 받은 문자열을 하나씩 분리해 배열 number에 넣는다.
+     
+     값에 중복이 있는지, 3글자가 맞는지 검사한 후 이를 만족하지 못하면 재입력 받는다.
+   
+     배열에 있는 값을 정수로 변환한 뒤 리스트에 넣고 반환한다.
+   
+   - **clear()**
+   
+     리스트를 초기화한다.
+
+   - **inputData()**
+   
+     값을 입력 받고 한 글자씩 분리한다.
+   
+   - **checkForLength(String[] nums)**
+   
+     문자열의 길이가 3인지 검사한다. 만약 3이 아닐 경우 true를 반환한다.
+
+   - **checkForDuplicates(String[] nums)**
+     
+     중복값이 있는지 검사한다. 만약 중복값이 있을 경우 true를 반환한다. (배열의 총 개수와 중복값을 걸러낸 개수 비교)
+
+
+2. **RandomNumber Class**
+
+    랜덤한 정수를 생성하는 클래스
+    
+    - **createRandomNumber()**
+    
+      중복값이 없도록 Set으로 값을 저장한다. 리스트에 3개가 들어갈 때까지 반복해서 랜덤값을 생성하고 넣는다.
+
+
+3. **Comparison Class**
+
+    사용자가 입력한 값과 랜덤 생성한 값을 비교하는 클래스
+
+    - **compareNumber(ArrayList<Integer> input, ArrayList<Integer> randomNumber)**
+      
+      만약 입력 값과 랜덤값 중 순서 상관없이 겹치는 값이 있다면 ball을 하나 늘린다.
+      
+      순서도 같이 겹치는 값이 있다면 strike를 하나 늘린다.
+
+
+4. **Output Class**
+    
+    결과를 출력하는 클래스
+
+    - **output(int strike, int ball)**
+    
+      strike와 ball 값을 받아와, 만약 strike가 3이면 답을 맞힌 것이므로 BASEBALL WIN~!을 출력한다.
+   
+      정답을 맞히지 못했다면 ball, strike 여부를 알려준다.
