@@ -1,18 +1,19 @@
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class RandomNumber {
 
-    private static final Set<Integer> randomNumbersSet = new HashSet<>();
+    private Set<Integer> randomNumber = new HashSet<>();
 
-    public ArrayList<Integer> createRandomNumber() {
+    public List<Integer> createRandomNumber() {
 
-        while(randomNumbersSet.size() < 3) {
-            randomNumbersSet.add((int) (Math.random() * 9 + 1));
+        while(randomNumber.size() < 3) {
+            randomNumber.add((int) (Math.random() * 9 + 1));
         }
 
-        ArrayList<Integer> randomNumbers = new ArrayList<>(randomNumbersSet);
+        List<Integer> randomNumbers = new ArrayList<>(randomNumber);
         return randomNumbers;
     }
 }

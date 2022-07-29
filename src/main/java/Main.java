@@ -1,15 +1,22 @@
-import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Play Baseball Game");
-
         Input input = new Input();
+        Output output = new Output();
         RandomNumber randomNumber = new RandomNumber();
-        Comparison compareNumber = new Comparison();
+        Comparison comparison = new Comparison();
 
-        while (compareNumber.compareNumber(input.input(), randomNumber.createRandomNumber()) != 3) {
+        int[] result = new int[2];
 
+        List<Integer> randomNumbers = randomNumber.createRandomNumber();
+
+        output.playBaseballGame();
+
+        while(result[1] != 3) {
+            List<Integer> userNumbers = input.arrToList(input.inputDataSplit(input.input()));
+            result = comparison.compare(randomNumbers, userNumbers);
+            output.output(result);
         }
     }
 }

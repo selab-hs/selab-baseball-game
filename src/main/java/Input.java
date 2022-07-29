@@ -1,40 +1,37 @@
 import java.util.*;
-import java.util.stream.Stream;
+import java.util.stream.Collectors;
 
 public class Input {
-    private ArrayList<Integer> numbers = new ArrayList<>();
 
-    public ArrayList<Integer> input() {
-        clear();
-        System.out.println("\n" + "숫자 3개를 입력해 주세요. (예: 123)");
-        String[] number = inputData();
+    public String input() {
+        System.out.println("\n1~9 사이의 숫자 3개를 입력해 주세요.");
+        return new Scanner(System.in).nextLine();
+    }
 
-        while (checkForDuplicates(number) == true || checkForLength(number) == true) {
-            System.out.println("\n" + "입력값은 중복이 없어야 하며 3자리여야 합니다. 재입력해 주세요.");
-            number = inputData();
-        }
+    public String[] inputDataSplit(String str) {
+        return str.split("");
+    }
 
-        for (int i = 0; i < 3; i++) {
-            numbers.add(Integer.parseInt(number[i]));
-        }
+    public List<Integer> arrToList(String[] str) {
+
+        List<String> number = Arrays.asList(str);
+        List<Integer> numbers = number.stream().map(s -> Integer.parseInt(s)).collect(Collectors.toList());
+
+        validateForNumberLength(numbers);
+        validateForDuplication(numbers);
 
         return numbers;
     }
 
-    public void clear() {
-        numbers.clear();
+    public void validateForNumberLength(List<Integer> numbers) {
+        if(numbers.size() < 3 || numbers.size() > 3 || numbers.contains(0)) {
+            throw new RuntimeException("1~9 사이의 3자리 숫자를 입력해 주세요.");
+        }
     }
 
-    public String[] inputData() {
-        return new Scanner(System.in).nextLine().split("");
-    }
-
-    private static boolean checkForLength(String[] nums) {
-        return nums.length > 3 || nums.length < 3;
-    }
-
-    private static boolean checkForDuplicates(String[] nums) {
-        Long count = Stream.of(nums).distinct().count();
-        return nums.length != count;
+    public void validateForDuplication(List<Integer> numbers) {
+        if (numbers.size() != numbers.stream().distinct().count()) {
+            throw new RuntimeException("중복값이 있습니다.");
+        }
     }
 }
