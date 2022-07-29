@@ -2,8 +2,8 @@ import java.util.List;
 
 public class Comparison {
 
-    int ball;
-    int strike;
+    private int ball;
+    private int strike;
 
     public int[] compare(List<Integer> randomNumber, List<Integer> userNumber) {
 

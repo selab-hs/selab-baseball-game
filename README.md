@@ -35,27 +35,23 @@ wrjs@naver.com
 
    - **input()**
 
-     입력 받은 문자열을 하나씩 분리해 배열 number에 넣는다.
-     
-     값에 중복이 있는지, 3글자가 맞는지 검사한 후 이를 만족하지 못하면 재입력 받는다.
-   
-     배열에 있는 값을 정수로 변환한 뒤 리스트에 넣고 반환한다.
-   
-   - **clear()**
-   
-     리스트를 초기화한다.
+     사용자에게 값을 입력 받는다.
 
-   - **inputData()**
+   - **inputDataSplit()**
    
-     값을 입력 받고 한 글자씩 분리한다.
+     입력 받은 값을 한 글자씩 분리하여 배열에 넣는다.
    
-   - **checkForLength(String[] nums)**
+   - **arrToList**
    
-     문자열의 길이가 3인지 검사한다. 만약 3이 아닐 경우 true를 반환한다.
+     배열을 리스트로 바꾼다.
 
-   - **checkForDuplicates(String[] nums)**
+   - **validateForNumberLength()**
      
-     중복값이 있는지 검사한다. 만약 중복값이 있을 경우 true를 반환한다. (배열의 총 개수와 중복값을 걸러낸 개수 비교)
+     1~9까지의 수인지, 3자리 수가 맞는지 검사한다.
+
+   - **validateForDuplication()**
+
+     중복값이 있는지 검사한다. (리스트의 사이즈와 중복값을 걸러낸 개수 비교)
 
 
 2. **RandomNumber Class**
@@ -71,19 +67,29 @@ wrjs@naver.com
 
     사용자가 입력한 값과 랜덤 생성한 값을 비교하는 클래스
 
-    - **compareNumber(ArrayList<Integer> input, ArrayList<Integer> randomNumber)**
+    - **compare()**
       
-      만약 입력 값과 랜덤값 중 순서 상관없이 겹치는 값이 있다면 ball을 하나 늘린다.
-      
-      순서도 같이 겹치는 값이 있다면 strike를 하나 늘린다.
+      ball, strike 값을 반환한다.
+   
+    - **checkForBall()**
+   
+      랜덤 생성 값에 사용자가 입력한 값이 포함되어 있으면 ball 수를 늘리고 반환한다.
+
+    - **checkForStrike()**
+   
+      랜덤 생성 값과 사용자가 입력한 값이 같고 위치도 같으면 strike 수를 늘리고 반환한다.
 
 
 4. **Output Class**
     
     결과를 출력하는 클래스
 
-    - **output(int strike, int ball)**
+    - **output()**
     
-      strike와 ball 값을 받아와, 만약 strike가 3이면 답을 맞힌 것이므로 BASEBALL WIN~!을 출력한다.
+      strike와 ball 값(result)을 받아와, 만약 strike(result[1])가 3이면 답을 맞힌 것이므로 BASEBALL WIN~!을 출력한다.
    
       정답을 맞히지 못했다면 ball, strike 여부를 알려준다.
+
+    - **playBaseballGame()**
+
+      "Play Baseball Game"을 출력한다.
