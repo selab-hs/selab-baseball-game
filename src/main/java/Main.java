@@ -1,5 +1,7 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Play Baseball Game");
+        String[] input = InputUtil.getInput();
+        Baseball baseball = new Baseball(input);
+        baseball.run();
     }
 }
