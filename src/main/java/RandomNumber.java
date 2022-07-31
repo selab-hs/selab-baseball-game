@@ -5,7 +5,11 @@ import java.util.Set;
 
 public class RandomNumber {
 
-    private Set<Integer> randomNumber = new HashSet<>();
+    private final Set<Integer> randomNumber;
+
+    RandomNumber() {
+        randomNumber = new HashSet<>();
+    }
 
     public List<Integer> createRandomNumber() {
 
@@ -13,7 +17,7 @@ public class RandomNumber {
             randomNumber.add((int) (Math.random() * 9 + 1));
         }
 
-        List<Integer> randomNumbers = new ArrayList<>(randomNumber);
-        return randomNumbers;
+        System.out.println(randomNumber);
+        return new ArrayList<>(randomNumber);
     }
 }

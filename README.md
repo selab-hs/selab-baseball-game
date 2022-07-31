@@ -41,7 +41,7 @@ wrjs@naver.com
    
      입력 받은 값을 한 글자씩 분리하여 배열에 넣는다.
    
-   - **arrToList**
+   - **arrToList()**
    
      배열을 리스트로 바꾼다.
 
@@ -90,6 +90,6 @@ wrjs@naver.com
    
       정답을 맞히지 못했다면 ball, strike 여부를 알려준다.
 
-    - **playBaseballGame()**
+    - **printPlayBaseballGame()**
 
       "Play Baseball Game"을 출력한다.

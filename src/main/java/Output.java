@@ -9,7 +9,7 @@ public class Output {
         System.out.println(result[0] + " " + "ball / " + result[1] + " strike");
     }
 
-    public void playBaseballGame() {
+    public void printPlayBaseballGame() {
         System.out.println("Play Baseball Game");
     }
 

@@ -11,7 +11,7 @@ public class Main {
 
         List<Integer> randomNumbers = randomNumber.createRandomNumber();
 
-        output.playBaseballGame();
+        output.printPlayBaseballGame();
 
         while(result[1] != 3) {
             List<Integer> userNumbers = input.arrToList(input.inputDataSplit(input.input()));
