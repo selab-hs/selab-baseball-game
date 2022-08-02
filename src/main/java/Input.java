@@ -14,8 +14,7 @@ public class Input {
 
     public List<Integer> arrToList(String[] str) {
 
-        List<String> number = Arrays.asList(str);
-        List<Integer> numbers = number.stream().map(s -> Integer.parseInt(s)).collect(Collectors.toList());
+        List<Integer> numbers = Arrays.asList(str).stream().map(s -> Integer.parseInt(s)).collect(Collectors.toList());
 
         validateForNumberLength(numbers);
         validateForDuplication(numbers);

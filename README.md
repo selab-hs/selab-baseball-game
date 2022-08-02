@@ -30,66 +30,62 @@ wrjs@naver.com
 ### 구현 내용
 
 1. **Input Class**
-
    사용자에게 값을 입력 받는 클래스
 
    - **input()**
-
      사용자에게 값을 입력 받는다.
 
    - **inputDataSplit()**
-   
      입력 받은 값을 한 글자씩 분리하여 배열에 넣는다.
    
    - **arrToList()**
-   
      배열을 리스트로 바꾼다.
 
    - **validateForNumberLength()**
-     
      1~9까지의 수인지, 3자리 수가 맞는지 검사한다.
 
    - **validateForDuplication()**
-
      중복값이 있는지 검사한다. (리스트의 사이즈와 중복값을 걸러낸 개수 비교)
 
 
 2. **RandomNumber Class**
-
     랜덤한 정수를 생성하는 클래스
     
     - **createRandomNumber()**
-    
       중복값이 없도록 Set으로 값을 저장한다. 리스트에 3개가 들어갈 때까지 반복해서 랜덤값을 생성하고 넣는다.
 
 
-3. **Comparison Class**
+3. **Baseball Class**
+    볼인지 스트라이크인지 확인하는 추상 클래스
 
-    사용자가 입력한 값과 랜덤 생성한 값을 비교하는 클래스
-
-    - **compare()**
-      
-      ball, strike 값을 반환한다.
-   
-    - **checkForBall()**
-   
-      랜덤 생성 값에 사용자가 입력한 값이 포함되어 있으면 ball 수를 늘리고 반환한다.
-
-    - **checkForStrike()**
-   
-      랜덤 생성 값과 사용자가 입력한 값이 같고 위치도 같으면 strike 수를 늘리고 반환한다.
+    - **checkBallOrStrike()**
+      랜덤값과 사용자가 입력한 값을 파라미터로 받아 비교하는 추상 메서드
 
 
-4. **Output Class**
-    
+4. **Ball Class**
+   Ball인지 확인하는 클래스
+
+   - **checkBallOrStrike()**
+     랜덤값 리스트에 사용자가 입력한 수가 포함되어 있으면 Ball 수를 하나 증가시키고 반환한다.
+
+
+5. **Strike Class**
+   Strike인지 확인하는 클래스
+
+   - **checkBallOrStrike()**
+     랜덤값 리스트에 있는 수와 사용자가 입력한 수가 값도 같고 위치도 같으면 Strike 수를 하나 증가시키고 반환한다.
+     이때 Ball이 증가하면 안되므로 Ball 값을 하나 감소시킨다.
+
+   - **getBall()**
+     값을 감소시킨 Ball을 반환한다.
+
+
+6. **Output Class**
     결과를 출력하는 클래스
 
     - **output()**
-    
       strike와 ball 값(result)을 받아와, 만약 strike(result[1])가 3이면 답을 맞힌 것이므로 BASEBALL WIN~!을 출력한다.
-   
       정답을 맞히지 못했다면 ball, strike 여부를 알려준다.
 
     - **printPlayBaseballGame()**
-
       "Play Baseball Game"을 출력한다.

@@ -7,7 +7,7 @@ public class RandomNumber {
 
     private final Set<Integer> randomNumber;
 
-    RandomNumber() {
+    public RandomNumber() {
         randomNumber = new HashSet<>();
     }
 
@@ -17,7 +17,6 @@ public class RandomNumber {
             randomNumber.add((int) (Math.random() * 9 + 1));
         }
 
-        System.out.println(randomNumber);
         return new ArrayList<>(randomNumber);
     }
 }
