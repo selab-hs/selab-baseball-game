@@ -2,14 +2,16 @@ import java.util.List;
 
 public class Ball extends Baseball {
 
-    private int ball;
+    private final int ball;
 
-    Ball() {
+    public Ball() {
         this.ball = 0;
     }
 
     @Override
-    public int checkBallOrStrike(List<Integer> randomNumber, List<Integer> userNumber) {
+    public int check(List<Integer> randomNumber, List<Integer> userNumber) {
+
+        int ball = 0;
 
         for (int i = 0; i < 3; i++) {
             if (randomNumber.contains(userNumber.get(i))) {

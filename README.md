@@ -58,33 +58,29 @@ wrjs@naver.com
 3. **Baseball Class**
     볼인지 스트라이크인지 확인하는 추상 클래스
 
-    - **checkBallOrStrike()**
+    - **check()**
       랜덤값과 사용자가 입력한 값을 파라미터로 받아 비교하는 추상 메서드
 
 
 4. **Ball Class**
    Ball인지 확인하는 클래스
 
-   - **checkBallOrStrike()**
+   - **check()**
      랜덤값 리스트에 사용자가 입력한 수가 포함되어 있으면 Ball 수를 하나 증가시키고 반환한다.
 
 
 5. **Strike Class**
    Strike인지 확인하는 클래스
 
-   - **checkBallOrStrike()**
+   - **check()**
      랜덤값 리스트에 있는 수와 사용자가 입력한 수가 값도 같고 위치도 같으면 Strike 수를 하나 증가시키고 반환한다.
-     이때 Ball이 증가하면 안되므로 Ball 값을 하나 감소시킨다.
-
-   - **getBall()**
-     값을 감소시킨 Ball을 반환한다.
 
 
 6. **Output Class**
     결과를 출력하는 클래스
 
     - **output()**
-      strike와 ball 값(result)을 받아와, 만약 strike(result[1])가 3이면 답을 맞힌 것이므로 BASEBALL WIN~!을 출력한다.
+      strike와 ball 값을 받아와, 만약 strike가 3이면 답을 맞힌 것이므로 BASEBALL WIN~!을 출력한다.
       정답을 맞히지 못했다면 ball, strike 여부를 알려준다.
 
     - **printPlayBaseballGame()**

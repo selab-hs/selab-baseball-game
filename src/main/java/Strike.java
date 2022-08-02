@@ -2,28 +2,23 @@ import java.util.List;
 
 public class Strike extends Baseball {
 
-    private int ball;
-    private int strike;
+    private final int strike;
 
-    Strike() {
-        this.ball = 0;
+    public Strike() {
         this.strike = 0;
     }
 
     @Override
-    public int checkBallOrStrike(List<Integer> randomNumber, List<Integer> userNumber) {
+    public int check(List<Integer> randomNumber, List<Integer> userNumber) {
+
+        int strike = 0;
 
         for(int i = 0; i < 3; i++) {
             if (randomNumber.get(i).equals(userNumber.get(i))) {
                 strike++;
-                ball--;
             }
         }
 
         return strike;
-    }
-
-    public int getBall() {
-        return ball;
     }
 }

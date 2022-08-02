@@ -12,9 +12,9 @@ public class Input {
         return str.split("");
     }
 
-    public List<Integer> arrToList(String[] str) {
+    public List<Integer> toNumbers(String[] str) {
 
-        List<Integer> numbers = Arrays.asList(str).stream().map(s -> Integer.parseInt(s)).collect(Collectors.toList());
+        List<Integer> numbers = Arrays.stream(str).map(Integer::parseInt).collect(Collectors.toList());
 
         validateForNumberLength(numbers);
         validateForDuplication(numbers);
@@ -23,7 +23,7 @@ public class Input {
     }
 
     public void validateForNumberLength(List<Integer> numbers) {
-        if(numbers.size() < 3 || numbers.size() > 3 || numbers.contains(0)) {
+        if(numbers.size() != 3 || numbers.contains(0)) {
             throw new RuntimeException("1~9 사이의 3자리 숫자를 입력해 주세요.");
         }
     }

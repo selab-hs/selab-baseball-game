@@ -8,22 +8,21 @@ public class Main {
         RandomNumber randomNumber = new RandomNumber();
         List<Integer> randomNumbers = randomNumber.createRandomNumber();
 
-        int[] result = new int[2];
+        Ball ball = new Ball();
+        Strike strike = new Strike();
+
+        int totalStrike = 0;
+        int totalBall;
+
         output.printPlayBaseballGame();
 
-        while(result[1] != 3) {
+        while(totalStrike != 3) {
+            List<Integer> userNumbers = input.toNumbers(input.inputDataSplit(input.input()));
 
-            Ball ball = new Ball();
-            Strike strike = new Strike();
+            totalStrike = strike.check(randomNumbers, userNumbers);
+            totalBall = ball.check(randomNumbers, userNumbers) - totalStrike;
 
-            List<Integer> userNumbers = input.arrToList(input.inputDataSplit(input.input()));
-
-            int totalStrike = strike.checkBallOrStrike(randomNumbers, userNumbers);
-            int totalBall = strike.getBall() + ball.checkBallOrStrike(randomNumbers, userNumbers);
-
-            result = new int[]{totalBall, totalStrike};
-
-            output.output(result);
+            output.output(totalBall, totalStrike);
         }
     }
 }

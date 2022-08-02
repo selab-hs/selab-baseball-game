@@ -1,12 +1,12 @@
 public class Output {
 
-    public void output(int[] result) {
-        if(result[1] == 3) {
+    public void output(int ball, int strike) {
+        if(strike == 3) {
             System.out.println("BASEBALL WIN~!");
             return;
         }
 
-        System.out.println(result[0] + " " + "ball / " + result[1] + " strike");
+        System.out.println(ball + " " + "ball / " + strike + " strike");
     }
 
     public void printPlayBaseballGame() {
