@@ -4,20 +4,30 @@ public class OutputUtil {
         System.out.println(message);
     }
 
-    public static String getMessage(int ball, int strike) {
+    public static String getMessage(Strike strike, Ball ball) {
+        String flag = getOutputFlag(strike, ball);
         String message = "";
-        if(strike > 0) {
-            message = strike + " strike";
-        }
-        if(ball > 0) {
-            message = ball + " ball";
-        }
-        if(strike > 0 && ball > 0) {
-            message = ball + " ball / " + strike + " strike";
-        }
-        if(strike == 3) {
-            message = "BASEBALL WIN ~!";
+        int strikeCnt = strike.getStrike();
+        int ballCnt = ball.getBall();
+
+        switch (flag) {
+            case "STRIKE":
+                message = strikeCnt + " strike";
+                break;
+            case "BALL":
+                message = ballCnt + " ball";
+                break;
+            case "STRIKEBALL":
+                message = ballCnt + " ball / " + strikeCnt + " strike";
+                break;
+            case "WIN":
+                message = "BASEBALL WIN ~!";
+                break;
         }
         return message;
+    }
+
+    private static String getOutputFlag(Strike strike, Ball ball) {
+        return strike.checkPositive() + ball.checkPositive();
     }
 }

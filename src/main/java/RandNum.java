@@ -1,8 +1,12 @@
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 public class RandNum {
-    public static String[] generateNum() {
+    public static List<String> generateNum() {
         Random random = new Random();
-        return String.valueOf(random.nextInt(999)).split("");
+        return Arrays.asList(
+                String.valueOf(random.nextInt(999)).split("")
+        );
     }
 }

@@ -1,26 +1,27 @@
 import java.util.Arrays;
+import java.util.List;
 
 public class Baseball {
-    private String[] input;
+    private List<String> input;
 
     public Baseball(String[] input) {
-        this.input = input;
+        this.input = Arrays.asList(input);
     }
 
     public void run() {
-        String[] randNum = RandNum.generateNum();
-        Strike strikeInstance = new Strike();
-        Ball ballInstance = new Ball();
-
+        List<String> randNum = RandNum.generateNum();
+        Strike strike = new Strike();
+        Ball ball = new Ball();
+        System.out.println("랜덤값: " + randNum);
         while(true) {
-            int strike = strikeInstance.countStrike(randNum, input);
-            int ball = ballInstance.countBall(randNum, input);
-            String message = OutputUtil.getMessage(ball, strike);
+            strike.countStrike(randNum, input);
+            ball.countBall(randNum, input);
+            String message = OutputUtil.getMessage(strike, ball);
             OutputUtil.getOutput(message);
-            if(strike == 3) {
+            if(strike.getStrike() == 3) {
                 break;
             }
-            input = InputUtil.getInput();
+            input = Arrays.asList(InputUtil.getInput());
         }
     }
 }
