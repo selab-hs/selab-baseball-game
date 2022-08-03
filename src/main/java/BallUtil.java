@@ -19,7 +19,6 @@ public class BallUtil {
         return ball;
     }
 
-    //TODO : 로직 수정하기! strike 제외하고 세도록 수정 필요
     public boolean checkBall(int index, String[] randomNumber, String[] input) {
         return !randomNumber[index].equals(input[index]) && Arrays.stream(randomNumber).anyMatch(r -> r.equals(input[index]));
     }

@@ -4,9 +4,12 @@ public class OutputUtil {
     }
 
     public String getMessage(int strike, int ball) {
-        if(strike == 3) {
-            return "정답입니다!";
+        if (strike == 3) {
+            return "BASEBALL WIN~!";
         }
-        return strike + "strike " + ball + "ball";
+        if (strike == 0 && ball == 0) {
+            return "Out!";
+        }
+        return strike + " strike " + ball + " ball";
     }
 }
