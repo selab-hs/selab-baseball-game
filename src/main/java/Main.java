@@ -12,15 +12,15 @@ public class Main {
         Strike strike = new Strike();
 
         int totalStrike = 0;
-        int totalBall;
+        int totalBall = 0;
 
         output.printPlayBaseballGame();
 
         while(totalStrike != 3) {
-            List<Integer> userNumbers = input.toNumbers(input.inputDataSplit(input.input()));
+            List<Integer> userNumbers = input.toNumbers(input.input());
 
-            totalStrike = strike.check(randomNumbers, userNumbers);
-            totalBall = ball.check(randomNumbers, userNumbers) - totalStrike;
+            totalStrike = strike.compare(randomNumbers, userNumbers);
+            totalBall = ball.compare(randomNumbers, userNumbers) - totalStrike;
 
             output.output(totalBall, totalStrike);
         }

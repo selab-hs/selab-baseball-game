@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class Input {
@@ -8,13 +9,8 @@ public class Input {
         return new Scanner(System.in).nextLine();
     }
 
-    public String[] inputDataSplit(String str) {
-        return str.split("");
-    }
-
-    public List<Integer> toNumbers(String[] str) {
-
-        List<Integer> numbers = Arrays.stream(str).map(Integer::parseInt).collect(Collectors.toList());
+    public List<Integer> toNumbers(String str) {
+        List<Integer> numbers = Pattern.compile("").splitAsStream(str).map(Integer::parseInt).collect(Collectors.toList());
 
         validateForNumberLength(numbers);
         validateForDuplication(numbers);
@@ -23,13 +19,15 @@ public class Input {
     }
 
     public void validateForNumberLength(List<Integer> numbers) {
-        if(numbers.size() != 3 || numbers.contains(0)) {
+        if(numbers.size() > 3 || numbers.size() < 3 || numbers.contains(0)) {
             throw new RuntimeException("1~9 사이의 3자리 숫자를 입력해 주세요.");
         }
     }
 
     public void validateForDuplication(List<Integer> numbers) {
-        if (numbers.size() != numbers.stream().distinct().count()) {
+        int count = (int) numbers.stream().distinct().count();
+
+        if (count < 3) {
             throw new RuntimeException("중복값이 있습니다.");
         }
     }

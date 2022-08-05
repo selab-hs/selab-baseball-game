@@ -1,6 +1,7 @@
 import java.util.List;
+import java.util.stream.IntStream;
 
-public class Ball extends Baseball {
+public class Ball implements Baseball {
 
     private final int ball;
 
@@ -9,16 +10,7 @@ public class Ball extends Baseball {
     }
 
     @Override
-    public int check(List<Integer> randomNumber, List<Integer> userNumber) {
-
-        int ball = 0;
-
-        for (int i = 0; i < 3; i++) {
-            if (randomNumber.contains(userNumber.get(i))) {
-                ball++;
-            }
-        }
-
-        return ball;
+    public int compare(List<Integer> randomNumber, List<Integer> userNumber) {
+        return (int) IntStream.range(0, 3).filter(n -> randomNumber.contains(userNumber.get(n))).count();
     }
 }

@@ -1,6 +1,7 @@
 import java.util.List;
+import java.util.stream.IntStream;
 
-public class Strike extends Baseball {
+public class Strike implements Baseball {
 
     private final int strike;
 
@@ -9,16 +10,7 @@ public class Strike extends Baseball {
     }
 
     @Override
-    public int check(List<Integer> randomNumber, List<Integer> userNumber) {
-
-        int strike = 0;
-
-        for(int i = 0; i < 3; i++) {
-            if (randomNumber.get(i).equals(userNumber.get(i))) {
-                strike++;
-            }
-        }
-
-        return strike;
+    public int compare(List<Integer> randomNumber, List<Integer> userNumber) {
+        return (int) IntStream.range(0, 3).filter(n -> randomNumber.get(n).equals(userNumber.get(n))).count();
     }
 }
