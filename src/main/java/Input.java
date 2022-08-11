@@ -10,17 +10,27 @@ public class Input {
     }
 
     public List<Integer> toNumbers(String str) {
-        List<Integer> numbers = Pattern.compile("").splitAsStream(str).map(Integer::parseInt).collect(Collectors.toList());
+        List<Integer> numbers = Pattern.compile("")
+                .splitAsStream(str)
+                .map(Integer::parseInt)
+                .collect(Collectors.toList());
 
         validateForNumberLength(numbers);
+        validateForNumberRange(numbers);
         validateForDuplication(numbers);
 
         return numbers;
     }
 
     public void validateForNumberLength(List<Integer> numbers) {
-        if(numbers.size() > 3 || numbers.size() < 3 || numbers.contains(0)) {
-            throw new RuntimeException("1~9 사이의 3자리 숫자를 입력해 주세요.");
+        if(numbers.size() != 3) {
+            throw new RuntimeException("3자리 숫자를 입력해 주세요.");
+        }
+    }
+
+    public void validateForNumberRange(List<Integer> numbers) {
+        if(numbers.contains(0)) {
+            throw new RuntimeException("1~9 범위의 숫자를 입력해 주세요.");
         }
     }
 

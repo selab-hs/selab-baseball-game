@@ -1,5 +1,6 @@
 import java.util.List;
-import java.util.stream.IntStream;
+
+import static java.util.stream.IntStream.range;
 
 public class Strike implements Baseball {
 
@@ -11,6 +12,8 @@ public class Strike implements Baseball {
 
     @Override
     public int compare(List<Integer> randomNumber, List<Integer> userNumber) {
-        return (int) IntStream.range(0, 3).filter(n -> randomNumber.get(n).equals(userNumber.get(n))).count();
+        return (int) range(0, 3)
+                .filter(n -> randomNumber.get(n).equals(userNumber.get(n)))
+                .count();
     }
 }

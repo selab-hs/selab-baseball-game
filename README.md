@@ -39,10 +39,13 @@ wrjs@naver.com
      입력 받은 값을 한 글자씩 분리하여 리스트에 넣고 정수형으로 반환한다.
 
    - **validateForNumberLength()**
-     1~9까지의 수인지, 3자리 수가 맞는지 검사한다.
+     3자리 수가 맞는지 검사한다.
 
-   - **validateForDuplication()**
-     중복값이 있는지 검사한다.
+   - **validateForNumberRange()**
+     1~9 범위의 수인지 검사한다.
+
+  - **validateForDuplication()**
+    중복값이 있는지 검사한다.
 
 
 2. **RandomNumber Class**

@@ -11,18 +11,19 @@ public class Main {
         Ball ball = new Ball();
         Strike strike = new Strike();
 
-        int totalStrike = 0;
-        int totalBall = 0;
-
         output.printPlayBaseballGame();
 
-        while(totalStrike != 3) {
+        while(true) {
             List<Integer> userNumbers = input.toNumbers(input.input());
 
-            totalStrike = strike.compare(randomNumbers, userNumbers);
-            totalBall = ball.compare(randomNumbers, userNumbers) - totalStrike;
+            int totalStrike = strike.compare(randomNumbers, userNumbers);
+            int totalBall = ball.compare(randomNumbers, userNumbers) - totalStrike;
 
             output.output(totalBall, totalStrike);
+
+            if(totalStrike == 3) {
+                break;
+            }
         }
     }
 }

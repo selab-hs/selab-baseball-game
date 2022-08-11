@@ -1,10 +1,9 @@
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.*;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
+@Slf4j
 public class RandomNumber {
-    private final static Logger log = LoggerFactory.getLogger(RandomNumber.class);
 
     private final Set<Integer> randomNumber;
 
@@ -13,8 +12,10 @@ public class RandomNumber {
     }
 
     public List<Integer> createRandomNumber() {
+        Random random = new Random(System.currentTimeMillis());
+
         while(randomNumber.size() < 3) {
-            randomNumber.add((int) (Math.random() * 9 + 1));
+            randomNumber.add(random.nextInt(9) + 1);
         }
 
         log.info("랜덤값 = {}", randomNumber);
