@@ -1,4 +1,4 @@
-import java.util.Arrays;
+import java.util.List;
 
 public class Baseball {
     public void playBaseball() {
@@ -6,26 +6,27 @@ public class Baseball {
         OutputUtil outputUtil = new OutputUtil();
         CheckArrayDupplicate checkArrayDupplicate = new CheckArrayDupplicate();
 
-        String[] input;
-        String[] randomNumber = RandomNumber.generateRandomNumber();
+        List<String> input;
+        List<String> randomNumber = RandomNumber.generateRandomNumber();
 
-        StrikeUtil strikeUtil = new StrikeUtil(0);
-        BallUtil ballUtil = new BallUtil(0);
-        System.out.println("random : " + Arrays.toString(randomNumber));
-        while (true) {
+        Strike strike = new Strike(0);
+        Ball ball = new Ball(0);
+
+        boolean success = false;
+        while (!success) {
             input = inputUtil.getInput();
             if(!checkArrayDupplicate.checkDuplicate(input)) {
                 outputUtil.getOutput("중복 없이 입력해주세요!");
                 continue;
             }
 
-            int strikeCount = strikeUtil.countStrike(randomNumber, input);
-            int ballCount = ballUtil.countBall(randomNumber, input);
-            outputUtil.getOutput(outputUtil.getMessage(strikeCount, ballCount));
+            int strikeCount = strike.countStrike(randomNumber, input);
+            int ballCount = ball.countBall(randomNumber, input);
+            outputUtil.getMessage(strikeCount, ballCount);
+
             if (strikeCount == 3) {
-                break;
+                success = true;
             }
         }
-
     }
 }

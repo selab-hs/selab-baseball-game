@@ -1,8 +1,9 @@
+import java.util.List;
 import java.util.Scanner;
 
 public class InputUtil {
-    public String[] getInput() {
+    public List<String> getInput() {
         Scanner scanner = new Scanner(System.in);
-        return scanner.nextLine().split("");
+        return List.of(scanner.nextLine().split(""));
     }
 }

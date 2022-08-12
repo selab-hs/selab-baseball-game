@@ -1,14 +1,15 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class RandomNumber {
-    public static String[] generateRandomNumber() {
+    public static List<String> generateRandomNumber() {
         Random random = new Random();
         CheckArrayDupplicate checkArrayDupplicate = new CheckArrayDupplicate();
-
-        String[] result;
+        List<String> result;
         do {
-            result = String.valueOf(random.nextInt(999)).split("");
-        } while (!checkArrayDupplicate.checkDuplicate(result) || result.length != 3);
+            result = List.of(String.valueOf(random.nextInt(999)).split(""));
+        } while (!checkArrayDupplicate.checkDuplicate(result) || result.size() != 3);
         return result;
     }
 }

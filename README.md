@@ -29,8 +29,8 @@
 ### 3. 구현 클래스 설명
 - InputUtil : 입력 클래스
 - OutputUtil : 출력 클래스
-- BallUtil : 볼을 판단하고 확인하는 클래스
-- StrikeUtil : 스트라이크를 판단하고 확인하는 클래스
+- Ball : 볼을 판단하고 확인하는 클래스
+- Strike : 스트라이크를 판단하고 확인하는 클래스
 - CheckArrayDuplicate : 배열의 중복을 확인하는 클래스
 - Main : 메인 클래스
 - BaseBall : 숫자야구 게임이 진행되는 클래스

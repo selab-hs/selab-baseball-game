@@ -3,13 +3,29 @@ public class OutputUtil {
         System.out.println(message);
     }
 
-    public String getMessage(int strike, int ball) {
-        if (strike == 3) {
-            return "BASEBALL WIN~!";
-        }
-        if (strike == 0 && ball == 0) {
-            return "Out!";
-        }
-        return strike + " strike " + ball + " ball";
+    public void getMessage(int strike, int ball) {
+        isWin(strike);
+        isOut(strike, ball);
+        isGoing(strike, ball);
     }
+
+    public void isWin(int strike) {
+        if(strike==3) {
+            getOutput("BASEBALL WIM~!");
+        }
+    }
+
+    public void isOut(int strike, int ball) {
+        if(strike+ball == 0) {
+            getOutput("OUT!");
+        }
+    }
+
+    public void isGoing(int strike, int ball) {
+        if(strike!=3 && (strike+ball) != 0) {
+            String message = strike + " strike " + ball + " ball";
+            getOutput(message);
+        }
+    }
+
 }
