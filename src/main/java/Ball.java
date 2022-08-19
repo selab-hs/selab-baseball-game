@@ -1,26 +1,24 @@
-import java.util.Arrays;
 import java.util.List;
 
 public final class Ball {
-    private int ball;
-
-    public Ball(int ball) {
-        this.ball = ball;
-    }
+    public Ball() {};
 
     public int countBall(List<String> randomNumber, List<String> input) {
-        ball = 0;
+        int count = 0;
 
         for (int i = 0; i < 3; i++) {
             if(checkBall(i, randomNumber, input)) {
-                ball++;
+                count++;
             }
         }
 
-        return ball;
+        return count;
     }
 
     public boolean checkBall(int index, List<String> randomNumber, List<String> input) {
-        return !randomNumber.get(index).equals(input.get(index)) && input.contains(randomNumber.get(index));
+        boolean isStrike = randomNumber.get(index).equals(input.get(index));
+        boolean isBall = input.contains(randomNumber.get(index));
+
+        return !isBall && isStrike;
     }
 }

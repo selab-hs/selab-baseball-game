@@ -1,20 +1,20 @@
+import java.util.Arrays;
 import java.util.List;
 
 public class Baseball {
     public void playBaseball() {
         InputUtil inputUtil = new InputUtil();
         OutputUtil outputUtil = new OutputUtil();
+        RandomNumber randomNumberUtil = new RandomNumber();
+        Strike strike = new Strike();
+        Ball ball = new Ball();
+
         CheckArrayDupplicate checkArrayDupplicate = new CheckArrayDupplicate();
-
-        List<String> input;
-        List<String> randomNumber = RandomNumber.generateRandomNumber();
-
-        Strike strike = new Strike(0);
-        Ball ball = new Ball(0);
+        List<String> randomNumber = randomNumberUtil.generateRandomNumber();
 
         boolean success = false;
         while (!success) {
-            input = inputUtil.getInput();
+            List<String> input = inputUtil.getInput();
             if(!checkArrayDupplicate.checkDuplicate(input)) {
                 outputUtil.getOutput("중복 없이 입력해주세요!");
                 continue;

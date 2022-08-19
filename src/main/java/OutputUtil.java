@@ -1,3 +1,6 @@
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
 public class OutputUtil {
     public void getOutput(String message) {
         System.out.println(message);
