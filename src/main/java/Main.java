@@ -1,5 +1,8 @@
+import controller.BaseballGame;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Play Baseball Game");
+        BaseballGame baseballGame = new BaseballGame();
+        baseballGame.play();
     }
 }
