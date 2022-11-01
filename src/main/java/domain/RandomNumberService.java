@@ -7,13 +7,13 @@ import java.util.Random;
 import static controller.BaseballGame.randomNumber;
 
 public class RandomNumberService {
-    Random random = new Random();
+    private final Random random = new Random();
 
     public void initNumber() {
         int index = Numbers.ZERO;
-        while (randomNumber.getSize() < Numbers.THREE) {
+        while (randomNumber.getSize() < 3) {
             randomNumber.addNumber(createNumber());
-            if (!DuplicateCheck.checkingDuplicate(randomNumber.getList(), randomNumber.getSize())) {
+            if (!NumberService.checkingDuplicate(randomNumber.getList())) {
                 randomNumber.removeNumber(index);
             }
             index++;
