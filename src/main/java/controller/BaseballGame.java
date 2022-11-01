@@ -19,8 +19,6 @@ public class BaseballGame {
     public static final Output output = new Output();
     public static final Ball ball = new Ball();
     public static final Strike strike = new Strike();
-
-
     public static int result = Numbers.ZERO;
 
 
@@ -31,12 +29,12 @@ public class BaseballGame {
             userNumberService.initUserNumber();
             int countingBall = ball.checkingBall(userNumber.getList(), randomNumber.getList());
             int countingStrike = 0;
-            if (countingBall > Numbers.ONE) {
+            if (countingBall > 1) {
                 countingStrike = strike.checkingStrike(userNumber.getList(), randomNumber.getList());
                 countingBall -= countingStrike;
-                if (countingStrike == Numbers.THREE) {
+                if (countingStrike == 3) {
                     output.printVictoryMessage();
-                    result = Numbers.ONE;
+                    result = 1;
                 }
             }
             output.printOutputMessage(countingStrike, countingBall);
