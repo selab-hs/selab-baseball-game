@@ -9,26 +9,27 @@ public class UserNumberService {
 
     public void initUserNumber() {
         boolean completionCheck = false;
-        do {
+
+        while (!completionCheck) {
             int number = Integer.parseInt(input.getData());
-            if (number > Numbers.MAX_NUMBER) {
+            if (number > Numbers.MAX_NUMBER || number < Numbers.MIN_NUMBER) {
                 output.printSizeMessage();
                 userNumber.clearList();
                 continue;
             }
-            DigitizingNumber(number);
-            completionCheck = DuplicateCheck.checkingDuplicate(userNumber.getList(), userNumber.getSize());
+            digitizingNumber(number);
+            completionCheck = NumberService.checkingDuplicate(userNumber.getList());
             if (!completionCheck) {
                 output.printDuplicateMessage();
                 userNumber.clearList();
             }
-        } while (!completionCheck);
+        }
     }
 
-    private void DigitizingNumber(int num) {
+    private void digitizingNumber(int num) {
         userNumber.clearList();
-        userNumber.addNumber(num / Numbers.HUNDRED);
-        userNumber.addNumber((num % Numbers.HUNDRED) / Numbers.TEN);
-        userNumber.addNumber(num % Numbers.TEN);
+        userNumber.addNumber(num / 100);
+        userNumber.addNumber((num % 100) / 10);
+        userNumber.addNumber(num % 10);
     }
 }
