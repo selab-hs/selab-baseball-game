@@ -8,7 +8,7 @@ public class Ball {
 
     public int checkingBall(List<Integer> randomList, List<Integer> userList) {
         int ball = Numbers.ZERO;
-        for (int index = Numbers.ZERO; index < Numbers.THREE; index++) {
+        for (int index = Numbers.ZERO; index < 3; index++) {
             final int finalIndex = index;
             ball += randomList.stream()
                     .filter(number -> number.equals(userList.get(finalIndex)))
