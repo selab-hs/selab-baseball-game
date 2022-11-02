@@ -24,3 +24,34 @@
 wrjs@naver.com
 ```
 4. 공부하고 싶은 SE.LAB원이라면 누구나 환영!
+
+### 4. 구현 내용
+* **Baseball**: 야구게임 수행 클래스
+   * `run()`: 사용자와 컴퓨터 랜덤값 비교해 게임 진행 메소드
+
+* **Strike**: 스트라이크 관련 클래스
+  * `countStrike()`: 스트라이크 개수 계산 메소드
+  * `checkStrike()`: 스트라이크 검사 메소드
+  * `checkPositive()`: 스트라이크 카운트 양수인지 체크해 flag 반환
+
+* **Ball**: 볼 관련 클래스
+  * `countBall()`: 볼 개수 계산 메소드
+  * `checkBall()`: 볼 검사 메소드
+  * `checkPositive()`: 볼 카운트 양수인지 체크해 flag 반환
+
+* **RandNum**: 랜덤값 관련 클래스
+  * `generateNum()`: 랜덤값 생성 메소드 
+
+* **OutputUtil**: 결과값 출력 클래스
+  * `getOutput()`: 문자열 출력 메소드
+  * `getMessage()`: 조건에 따른 문자열 반환 메소드
+  * `getOutputFlag()`: ball, strike 양수인지 확인해 flag 생성
+
+* **InputUtil**: 입력값 관련 클래스
+  * `getInput()`: 입력값 반환 메소드 
+
+### 5. 요구사항 분석
+* 사용자로부터 중복되지 않는 숫자 3개를 입력받는다.
+* 랜덤값에 사용자가 입력한 값이 들어 있으면 ball, 대신 위치는 다른 경우
+* 랜덤값에 사용자가 입력한 값이 들어 있고, 위치가 같은 경우 strike
+* 사용자가 컴퓨터의 랜덤값을 맞출 때까지 게임은 계속된다.
