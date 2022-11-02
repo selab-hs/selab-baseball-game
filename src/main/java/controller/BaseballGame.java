@@ -27,17 +27,26 @@ public class BaseballGame {
         output.printCreateMessage();
         while (result == Numbers.ZERO) {
             userNumberService.initUserNumber();
-            int countingBall = ball.checkingBall(userNumber.getList(), randomNumber.getList());
-            int countingStrike = 0;
-            if (countingBall > 1) {
-                countingStrike = strike.checkingStrike(userNumber.getList(), randomNumber.getList());
-                countingBall -= countingStrike;
-                if (countingStrike == 3) {
-                    output.printVictoryMessage();
-                    result = 1;
-                }
+            int Ball = countingBall();
+            int Strike = 0;
+            if (Ball > 1) {
+                Strike = countingStrike();
+                Ball -= Strike;
             }
-            output.printOutputMessage(countingStrike, countingBall);
+            if (Strike == 3) {
+                output.printVictoryMessage();
+                result = 1;
+            }
+            output.printOutputMessage(Strike, Ball);
         }
     }
+
+    private int countingBall() {
+        return ball.checkingBall(userNumber.getList(), randomNumber.getList());
+    }
+
+    private int countingStrike() {
+        return strike.checkingStrike(userNumber.getList(), randomNumber.getList());
+    }
+
 }
