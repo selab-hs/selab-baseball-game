@@ -1,15 +1,14 @@
 package service;
 
-import javax.swing.*;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
-public class Computer {
+public class RandomNumberGenerateService {
     public String getNonDuplicateNumber() {
         Set<Integer> numbers = createNonDuplicateNumber();
-        String processNumber = process(numbers);
-        return processNumber;
+
+        return process(numbers);
     }
 
     private Set<Integer> createNonDuplicateNumber() {

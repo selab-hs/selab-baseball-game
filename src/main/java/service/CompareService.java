@@ -1,19 +1,17 @@
 package service;
 
-import model.Judgement;
-
 import java.util.*;
 
-public class Referee {
+public class CompareService {
 
-    public Judgement notifyTheResult(String player, String computer) {
+    public String notifyTheResult(String player, String computer) {
         Map<Integer, Integer> dividedNumberOfPlayer = divideTheNumber(player);
         Map<Integer, Integer> dividedNumberOfComputer = divideTheNumber(computer);
 
         int ball = countBall(dividedNumberOfPlayer, dividedNumberOfComputer);
         int strike = countStrike(dividedNumberOfPlayer, dividedNumberOfComputer);
 
-        return new Judgement(ball,strike);
+        return ball + " " + strike;
     }
 
     private Map<Integer, Integer> divideTheNumber(String number) {
@@ -37,7 +35,7 @@ public class Referee {
     private int countStrike(Map<Integer, Integer> player, Map<Integer, Integer> computer) {
         int count = 0;
         for (int i = 0; i < player.size(); i++) {
-            if(Objects.equals(player.get(i), computer.get(i))){
+            if (Objects.equals(player.get(i), computer.get(i))) {
                 count++;
             }
         }
