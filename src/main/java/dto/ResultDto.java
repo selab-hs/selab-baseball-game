@@ -1,8 +1,8 @@
 package dto;
 
 public class ResultDto {
-    private BallDto ballDto;
-    private StrikeDto strikeDto;
+    private final BallDto ballDto;
+    private final StrikeDto strikeDto;
 
     public ResultDto(BallDto ballDto, StrikeDto strikeDto) {
         this.ballDto = ballDto;
