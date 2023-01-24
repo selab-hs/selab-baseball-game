@@ -1,11 +1,12 @@
-package service;
+package service.context;
 
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
-public class RandomNumberGenerateService {
-    public String getNonDuplicateNumber() {
+public class RandomNumberGenerateService implements Generator {
+    @Override
+    public String generate() {
         Set<Integer> numbers = createNonDuplicateNumber();
 
         return process(numbers);
@@ -19,10 +20,10 @@ public class RandomNumberGenerateService {
         return numbers;
     }
 
-    private String process(Set<Integer> numbers){
+    private String process(Set<Integer> numbers) {
         Iterator<Integer> numbersInOrder = numbers.iterator();
         String processedNumber = "";
-        while (numbersInOrder.hasNext()){
+        while (numbersInOrder.hasNext()) {
             processedNumber += numbersInOrder.next();
         }
         return processedNumber;

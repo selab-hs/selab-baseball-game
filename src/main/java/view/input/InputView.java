@@ -1,9 +1,12 @@
-package view;
+package view.input;
+
+import view.input.Input;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-public class InputView {
+public class InputView implements Input {
+    @Override
     public String userInput() {
         System.out.println("[ System ] input");
         try (

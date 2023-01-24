@@ -1,10 +1,11 @@
-package service;
+package service.compare;
 
 import java.util.*;
 
-public class CompareService {
+public class CompareService implements Comparison {
 
-    public String notifyTheResult(String player, String computer) {
+    @Override
+    public String compare(String player, String computer) {
         Map<Integer, Integer> dividedNumberOfPlayer = divideTheNumber(player);
         Map<Integer, Integer> dividedNumberOfComputer = divideTheNumber(computer);
 
