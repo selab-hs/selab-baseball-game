@@ -18,9 +18,13 @@
 ---
 
 ### 2. 구현 목표
-1. `Main`에서 `???`메소드를 호출하여 랜덤한 값 생성 (123, 456 등...)
+1. `Main`에서 `GetRandomValue`메소드를 호출하여 랜덤한 값 생성 (123, 456 등...)
    - `ArrayList` 사용하여 `Stream`의 `.filter` 이용해보자
 2. `Getinputvalue`로 값을 계속 받아온다 언제까지? 컴퓨터가 생성한 랜덤 값과 동일할 때 까지
    - `While`문 안에 `Getinputvalue`와 `CheckValue`를 넣어줘 계속해서 비교
    - 컴퓨터가 생성한 랜덤 값과 사용자가 입력한 값이 동일하다면 `BASEBALL WIN~!` - 종료
    - 동일하지 않은 경우 야구게임 규칙에 따라 `? ball/ ? strike` 출력
+
+### 3. 구현 내용
+- 추후에 추가
+- `RandomValue` 와 `inputValue`는 임시로 String 사용
