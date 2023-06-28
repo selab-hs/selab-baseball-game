@@ -1,17 +1,12 @@
-import java.util.ArrayList;
 import java.util.Random;
 
 public class RandomValue {
-    static String randomValue = "";
+    private static String randomValue = "";
 
-    public void RandomValue(){
+    public RandomValue(){
         System.out.println("RandomValue 실행");
-
         Random random = new Random();
-        for(int i = 0 ; i < 3 ; i++) {
-            int randomInt = random.nextInt();
-            randomValue += randomInt;
-        }
+        randomValue = Integer.toString(random.nextInt(900) + 100); //100 ~ 999 백의 자리 0은 제외
     }
 
     public static String getRandomValue(){
