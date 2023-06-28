@@ -3,6 +3,7 @@ public class Main {
         System.out.println("Play Baseball Game");
         RandomValue randomValue = new RandomValue();
         GetInputValue getInputValue = new GetInputValue();
-        CheckValue checkValue = new CheckValue(RandomValue.getRandomValue());
+
+        CheckValue checkValue = new CheckValue(getInputValue.getInputValue(),RandomValue.getRandomValue());
     }
 }
