@@ -1,5 +1,3 @@
-import java.util.regex.Pattern;
-
 public class PlayBaseballGame {
     public PlayBaseballGame() {
         RandomValue rv = new RandomValue();
@@ -7,17 +5,17 @@ public class PlayBaseballGame {
         System.out.println("RandomValue : " + RandomValue.getRandomValue());
         while(true) {
             String inputValue = GetInputValue.getInputValue();
-            checkValue(inputValue, randomValue);
+            BaseballGame(inputValue, randomValue);
         }
     }
 
-    private void checkValue(String inputValue, String randomValue) {
-        //야구게임
+    private void BaseballGame(String inputValue, String randomValue) {
         checkAnswer(inputValue,randomValue);
-        checkBaseball(inputValue,randomValue);
+        checkStrikeBall(inputValue,randomValue);
     }
 
-    private void checkBaseball(String inputValue, String randomValue) {
+    private void checkStrikeBall(String inputValue, String randomValue) {
+        //야구게임
         int strike = 0;
         int ball = 0;
 
@@ -31,7 +29,7 @@ public class PlayBaseballGame {
                 ball++;
             }
         }
-       printResult(strike,ball);
+        printResult(strike,ball);
     }
 
     private void printResult(int strike, int ball) {
