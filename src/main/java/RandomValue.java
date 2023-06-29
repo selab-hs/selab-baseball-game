@@ -4,9 +4,30 @@ public class RandomValue {
     private static String randomValue = "";
 
     public RandomValue(){
-        System.out.println("RandomValue 실행");
+        randomValue = generateRandomValue();
+    }
+
+    private String generateRandomValue() {
         Random random = new Random();
-        randomValue = Integer.toString(random.nextInt(900) + 100); //100 ~ 999 백의 자리 0은 제외
+        String usedDigits = "";
+
+        while (usedDigits.length() < 3) {
+            char digit = (char) (random.nextInt(9) + '1');
+
+            if (!hasDuplicateDigit(usedDigits, digit)) {
+                usedDigits += digit;
+            }
+        }
+        return usedDigits;
+    }
+
+    private boolean hasDuplicateDigit(String usedDigits, char digit) {
+        for (int i = 0; i < usedDigits.length(); i++) {
+            if (usedDigits.charAt(i) == digit) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public static String getRandomValue(){
