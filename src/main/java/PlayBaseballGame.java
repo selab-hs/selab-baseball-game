@@ -29,22 +29,17 @@ public class PlayBaseballGame {
                 ball++;
             }
         }
-        printResult(strike,ball);
+        new PrintResult(strike,ball);
     }
 
-    private void printResult(int strike, int ball) {
-        System.out.println(strike + " Strike, " + ball + " Ball");
-    }
+
 
     private void checkAnswer(String inputValue, String randomValue) {
         if(inputValue.equals(randomValue)) {
-            System.out.println("BASEBALL WIN~");
-            System.out.println("RandomValue : " + RandomValue.getRandomValue());
+            new PrintResult();
             System.exit(0);
         }
     }
-
-
 
 
 
