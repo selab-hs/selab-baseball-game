@@ -3,7 +3,7 @@ public class PrintResult {
         if(strike == 3){
             System.out.println("BASEBALL WIN~");
             System.out.println("RandomValue : " + randomValue);
-            System.exit(1);
+            System.exit(0);
         }else
             System.out.println(strike + " Strike, " + ball + " Ball");
     }
