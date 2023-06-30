@@ -1,8 +1,7 @@
 public class PlayBaseballGame {
     public PlayBaseballGame() {
-        RandomValue rv = new RandomValue();
-        String randomValue = RandomValue.getRandomValue();
-        System.out.println("RandomValue : " + RandomValue.getRandomValue());
+        String randomValue = RandomValue.generateRandomValue();
+        System.out.println("RandomValue : " + randomValue);
         while(true) {
             String inputValue = GetInputValue.getInputValue();
             BaseballGame(inputValue, randomValue);
@@ -10,7 +9,6 @@ public class PlayBaseballGame {
     }
 
     private void BaseballGame(String inputValue, String randomValue) {
-        checkAnswer(inputValue,randomValue);
         checkStrikeBall(inputValue,randomValue);
     }
 
@@ -19,7 +17,6 @@ public class PlayBaseballGame {
         int strike = 0;
         int ball = 0;
 
-        // 입력과 난수를 각 자리별로 비교
         for (int i = 0; i < 3; i++) {
             char inputChar = inputValue.charAt(i);
 
@@ -29,16 +26,7 @@ public class PlayBaseballGame {
                 ball++;
             }
         }
-        new PrintResult(strike,ball);
-    }
-
-
-
-    private void checkAnswer(String inputValue, String randomValue) {
-        if(inputValue.equals(randomValue)) {
-            new PrintResult();
-            System.exit(0);
-        }
+        new PrintResult(strike, ball, randomValue);
     }
 
 
