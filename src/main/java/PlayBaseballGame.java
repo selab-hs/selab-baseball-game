@@ -1,6 +1,8 @@
 public class PlayBaseballGame {
     public PlayBaseballGame() {
         String randomValue = RandomValue.generateRandomValue();
+        Strike strike = new Strike();
+        Ball ball = new Ball();
         System.out.println("RandomValue : " + randomValue);
         while(true) {
             String inputValue = GetInputValue.getInputValue();
@@ -14,21 +16,14 @@ public class PlayBaseballGame {
 
     private void checkStrikeBall(String inputValue, String randomValue) {
         //야구게임
-        int strike = 0;
-        int ball = 0;
-
-        for (int i = 0; i < 3; i++) {
-            char inputChar = inputValue.charAt(i);
-
-            if (inputChar == randomValue.charAt(i)) {
-                strike++;
-            } else if (randomValue.contains(String.valueOf(inputChar))) {
-                ball++;
+        Strike strike = new Strike();
+        Ball ball = new Ball();
+        for (int count = 0; count < 3; count++) {
+            char inputChar = inputValue.charAt(count);
+            if(!strike.checkStrike(inputChar, randomValue, count)){
+                ball.checkBall(inputChar, randomValue, count);
             }
         }
-        new PrintResult(strike, ball, randomValue);
+        new PrintResult(strike.getStrike(), ball.getBall(), randomValue);
     }
-
-
-
 }
