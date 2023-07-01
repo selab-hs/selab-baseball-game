@@ -1,8 +1,6 @@
 public class PlayBaseballGame {
     public PlayBaseballGame() {
         String randomValue = RandomValue.generateRandomValue();
-        Strike strike = new Strike();
-        Ball ball = new Ball();
         System.out.println("RandomValue : " + randomValue);
         while(true) {
             String inputValue = GetInputValue.getInputValue();
