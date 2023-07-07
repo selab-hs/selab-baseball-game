@@ -1,7 +1,7 @@
 public class PlayBaseballGame {
     public PlayBaseballGame() {
         String randomValue = RandomValue.generateRandomValue();
-        System.out.println("RandomValue : " + randomValue);
+        System.out.println("RandomValue : " + randomValue);     //Test 위한 코드, 최종 제출 시에는 제거
         while(true) {
             String inputValue = GetInputValue.getInputValue();
             BaseballGame(inputValue, randomValue);
