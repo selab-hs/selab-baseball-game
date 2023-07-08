@@ -1,18 +1,22 @@
 import java.util.Random;
 
 public class RandomValue {
+    private static final int RANDOM_VALUE_SIZE = 3;
     public static String generateRandomValue() {
+        String  usedDigit = "";
+        final String randomValue = createRandomDigit(usedDigit);;
+        return randomValue;
+    }
+
+    private static String createRandomDigit(String randomValue) {
         Random random = new Random();
-        String usedDigits = "";
-
-        while (usedDigits.length() < 3) {
+        while (randomValue.length() < RANDOM_VALUE_SIZE) {
             char digit = (char) (random.nextInt(9) + '1');
-
-            if (!hasDuplicateDigit(usedDigits, digit)) {
-                usedDigits += digit;
+            if (!hasDuplicateDigit(randomValue, digit)) {
+                randomValue += digit;
             }
         }
-        return usedDigits;
+        return randomValue;
     }
 
     public static boolean hasDuplicateDigit(String usedDigits, char digit) {
