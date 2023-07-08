@@ -4,9 +4,6 @@ public class Ball {
     public Ball(){
 
     }
-    public Ball(int ball) {
-        this.ball = ball;
-    }
 
     public void checkBall(char inputChar, String randomValue, int count) {
         if (randomValue.contains(String.valueOf(inputChar)) && !(inputChar == randomValue.charAt(count))) {
