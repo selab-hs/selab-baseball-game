@@ -13,15 +13,16 @@ public class PlayBaseballGame {
         Strike strike = new Strike();
         Ball ball = new Ball();
         checkBallStrike(strike, ball, inputValue, randomValue);
-        new PrintResult(strike.getStrike(), ball.getBall(), randomValue);
+        new PrintResult(strike.getResult(), ball.getResult(), randomValue);
     }
 
     private void checkBallStrike(Strike strike, Ball ball, String inputValue, String randomValue) {
 
         for (int count = 0; count < 3; count++) {
             char inputChar = inputValue.charAt(count);
-            strike.checkStrike(inputChar, randomValue, count);
-            ball.checkBall(inputChar, randomValue, count);
+            strike.checkInput(inputChar, randomValue, count);
+            ball.checkInput(inputChar, randomValue, count);
         }
     }
+
 }

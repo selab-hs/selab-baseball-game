@@ -1,15 +1,14 @@
-public class Strike {
+public class Strike implements BaseBallResult{
     private int strike;
-    public Strike(){
-
-    }
-    public void checkStrike(char inputChar, String randomValue, int count){
+    @Override
+    public void checkInput(char inputChar, String randomValue, int count) {
         if(inputChar == randomValue.charAt(count)){
             strike++;
         }
     }
 
-    public int getStrike(){
+    @Override
+    public int getResult() {
         return strike;
     }
 }
