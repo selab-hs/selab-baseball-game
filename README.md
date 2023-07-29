@@ -15,12 +15,21 @@
    - 컴퓨터가 생성한 값이 `456`일때, 사용자가 `456`을 입력하면, `BASEBALL WIN~!`을 출력한다.
 4. 사용자가 컴퓨터의 랜덤값을 맞출때 까지 게임은 계속된다.
 5. README에 요구사항을 꼭 적는다!
+---
 
-### 3. 기타사항
-1. 리뷰는 매주 1회 리뷰어들이 달아드립니다!
-2. 코드에 주석을 달기보다는, 코드로서 설명이 가능하도록 구현해주세요!
-3. 추가적이 문의사항이 있다면, 아래의 메일로 연락주세요!
-```
-wrjs@naver.com
-```
-4. 공부하고 싶은 SE.LAB원이라면 누구나 환영!
+### 2. 구현 목표
+1. `Main`에서 `GetRandomValue`메소드를 호출하여 랜덤한 값 생성 (123, 456 등...)
+   - ~~`ArrayList` 사용하여 `Stream`의 `.filter` 이용해보자~~
+2. `Getinputvalue`로 값을 계속 받아온다 **언제까지?** 컴퓨터가 생성한 랜덤 값과 동일할 때 까지
+   - `While`문 안에 `Getinputvalue`와 `CheckValue`를 넣어줘 계속해서 비교
+   - 컴퓨터가 생성한 랜덤 값과 사용자가 입력한 값이 동일하다면 `BASEBALL WIN~!` - 종료
+   - 동일하지 않은 경우 야구게임 규칙에 따라 `? ball/ ? strike` 출력
+
+### 3. 구현 내용
+1. `Main`에서 `PlayBaseballGame`메소드를 호출
+2. `PlayBaseballGame`에서 난수(`randomValue`) 생성
+   - 난수를 보여줍니다 (오류 방지 테스트를 직접 하기 위함)
+3. `While`문으로 `getInputValue()` 및 `checkValue()`를 반복해줍니다.
+   - `getInputValue()` : `scanner.NextLine()` 으로 값을 받아줍니다 (inputValue를 반복해서 입력 받아야 하기 때문)
+   - `BaseballGame` : 숫자야구의 규칙이 담겨있습니다. 규칙에 따라 `BASEBALL WIN~!` or `? ball/ ? strike` 을 출력해줍니다.
+4. `checkAnswer`에서 `System.exit()`으로 while문 탈출
